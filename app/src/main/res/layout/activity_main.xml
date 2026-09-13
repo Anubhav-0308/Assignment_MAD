@@ -1,161 +1,302 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F7F3F8">
+    android:background="#F6F4FA"
+    android:fillViewport="true"
+    android:clipToPadding="false">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/createReminderCard"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        app:cardCornerRadius="14dp"
-        app:cardElevation="5dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:paddingBottom="28dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <!-- ================= HEADER ================= -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="0dp"
+            android:layout_height="110dp"
+            android:background="#6F4AA8"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/headerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home Activity Reminder"
+                android:textColor="@android:color/white"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/headerSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Never miss an important task"
+                android:textColor="#E9DFF5"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headerTitle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!-- ================= CREATE REMINDER CARD ================= -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/createReminderCard"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:layout_constraintTop_toBottomOf="@id/headerLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:src="@drawable/reminder"
-                android:scaleType="centerCrop"
-                android:contentDescription="Alarm image" />
-
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:paddingBottom="20dp">
+
+                <!-- Card Heading -->
 
                 <TextView
+                    android:id="@+id/createTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Description"
-                    android:textSize="14sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Create Reminder"
+                    android:textColor="#222222"
+                    android:textSize="21sp"
                     android:textStyle="bold"
-                    android:textColor="#555555" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
-                    android:id="@+id/descriptionText"
-                    android:layout_width="match_parent"
+                    android:id="@+id/createSubtitle"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="Add a reminder for your work"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#222222" />
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Set a reminder for your important work"
+                    android:textColor="#777777"
+                    android:textSize="13sp"
+                    app:layout_constraintTop_toBottomOf="@id/createTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+
+                <!-- Reminder Image -->
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/imageCard"
+                    android:layout_width="0dp"
+                    android:layout_height="145dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="20dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintTop_toBottomOf="@id/createSubtitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <ImageView
+                        android:id="@+id/reminderImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/home"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Reminder image" />
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- Description Label -->
 
                 <TextView
-                    android:id="@+id/reminderTime"
+                    android:id="@+id/descriptionLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="⏰ 10:30 AM"
-                    android:textSize="17sp"
-                    android:textColor="#444444" />
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="18dp"
+                    android:text="DESCRIPTION"
+                    android:textColor="#777777"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/imageCard"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+                <!-- Description Text -->
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/descriptionBox"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="20dp"
+                    app:cardBackgroundColor="#F7F5FA"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintTop_toBottomOf="@id/descriptionLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <TextView
+                        android:id="@+id/descriptionText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp"
+                        android:text="Add a reminder for your work"
+                        android:textColor="#222222"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- Time Label -->
+
+                <TextView
+                    android:id="@+id/timeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="18dp"
+                    android:text="REMINDER TIME"
+                    android:textColor="#777777"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/descriptionBox"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+                <!-- Time Box -->
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/timeBox"
+                    android:layout_width="0dp"
+                    android:layout_height="58dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="20dp"
+                    app:cardBackgroundColor="#F0EAF8"
+                    app:cardCornerRadius="13dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintTop_toBottomOf="@id/timeLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <TextView
+                        android:id="@+id/reminderTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="⏰  Time"
+                        android:textColor="#5E3A91"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- Add Reminder Button -->
 
                 <Button
                     android:id="@+id/addReminderButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
                     android:text="ADD REMINDER"
-                    android:textStyle="bold"
+                    android:textAllCaps="true"
                     android:textColor="@android:color/white"
-                    android:backgroundTint="#6F4AA8" />
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#6F4AA8"
+                    android:elevation="2dp"
+                    app:cornerRadius="14dp"
+                    app:layout_constraintTop_toBottomOf="@id/timeBox"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-
-    <TextView
-        android:id="@+id/yourReminderTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="18dp"
-        android:text="YOUR REMINDER"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="#222222"
-        app:layout_constraintTop_toBottomOf="@id/createReminderCard"
-        app:layout_constraintStart_toStartOf="parent" />
+        </androidx.cardview.widget.CardView>
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/reminderCard"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:visibility="gone"
-        app:cardCornerRadius="14dp"
-        app:cardElevation="5dp"
-        app:layout_constraintTop_toBottomOf="@id/yourReminderTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        <!-- ================= YOUR REMINDERS ================= -->
+
+        <TextView
+            android:id="@+id/yourReminderTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="26dp"
+            android:text="Your Reminders"
+            android:textColor="#222222"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/createReminderCard"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <TextView
+            android:id="@+id/reminderCountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            android:text="Upcoming"
+            android:textColor="#7A62A0"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/yourReminderTitle"
+            app:layout_constraintBottom_toBottomOf="@id/yourReminderTitle"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <!-- Dynamic Reminder Container -->
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/remindersContainer"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical"
+            android:clipToPadding="false"
+            app:layout_constraintTop_toBottomOf="@id/yourReminderTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:src="@drawable/alarm"
-                android:scaleType="centerCrop"
-                android:contentDescription="Alarm image" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/reminderWork"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Study for exam"
-                    android:textSize="19sp"
-                    android:textStyle="bold"
-                    android:textColor="#222222" />
-
-                <TextView
-                    android:id="@+id/reminderTimeDisplay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="⏰ 10:30 AM"
-                    android:textSize="17sp"
-                    android:textColor="#555555" />
-
-                <Button
-                    android:id="@+id/cancelButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="CANCEL"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white"
-                    android:backgroundTint="#6F4AA8" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

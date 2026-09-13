@@ -1,4 +1,4 @@
-package com.example.assignment.
+package com.example.assignment
 
 import android.app.Service
 import android.content.Intent
@@ -16,9 +16,10 @@ class AlarmService : Service() {
         startId: Int
     ): Int {
 
-        val reminder = intent?.getStringExtra(
-            MainActivity.REMINDER_TEXT
-        )
+        val reminder =
+            intent?.getStringExtra(
+                MainActivity.REMINDER_TEXT
+            )
 
         Toast.makeText(
             this,
@@ -28,7 +29,7 @@ class AlarmService : Service() {
 
         mediaPlayer = MediaPlayer.create(
             this,
-            R.raw.alarm
+            R.raw.song
         )
 
         mediaPlayer?.start()
@@ -39,7 +40,9 @@ class AlarmService : Service() {
     override fun onDestroy() {
 
         mediaPlayer?.stop()
+
         mediaPlayer?.release()
+
         mediaPlayer = null
 
         Toast.makeText(
@@ -51,7 +54,10 @@ class AlarmService : Service() {
         super.onDestroy()
     }
 
-    override fun onBind(intent: Intent?): IBinder? {
+    override fun onBind(
+        intent: Intent?
+    ): IBinder? {
+
         return null
     }
 }

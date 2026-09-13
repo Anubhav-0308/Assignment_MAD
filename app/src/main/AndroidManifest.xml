@@ -1,28 +1,31 @@
-<<<<<<< Original
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission
+        android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
     <application
         android:allowBackup="true"
         android:label="Reminder App"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Reminder" >
-        <service
-            android:name=".service"
-            android:enabled="true"
-            android:exported="true" >
-        </service>
+        android:theme="@style/Theme.Assignment">
 
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true">
 
-                <category android:name="android.intent.category.LAUNCHER" />
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MAIN" />
+
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
+
         </activity>
 
         <receiver
@@ -30,21 +33,9 @@
             android:exported="false" />
 
         <service
-            android:name="service"
+            android:name=".AlarmService"
             android:exported="false" />
+
     </application>
 
 </manifest>
-=======
-
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <application>
-        <receiver android:name="com.example.assignment.AlarmBroadcastReceiver"
-            android:exported="true"
-            android:enabled="true" >
-        </receiver>
-    </application>
-
-</manifest>
->>>>>>> Added
