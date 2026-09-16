@@ -2,6 +2,8 @@
 
 A simple and user-friendly **Android Mobile Application** developed using **Kotlin** and **Android Studio**. The application allows users to create daily activity reminders and receive an alarm notification with a sound when the scheduled time arrives.
 
+https://github.com/user-attachments/assets/8c878f1f-37b4-4aa3-9268-a09c683b1b73
+
 ## 📱 About the Project
 
 **Home Activity Reminder** is designed to help users remember their important daily tasks and activities.
